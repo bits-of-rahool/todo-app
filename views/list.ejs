@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="row">
+        <h1> <%=day%></h1> 
+      </div>
+
+      <div >
+        
+        <ul>
+          <% for (var i = 0; i < all.length; i++) { %>
+          
+            <button class="row task"  onclick="toggleTextDecoration(this)"><%= all[i] %></button>
+          
+          <% } %>
+        </ul>
+
+      </div>
+      
+
+
+
+
+        <div> 
+          <div class="padding"></div>
+          <form action="/" method="post" class="bottom">
+            <input type="text" autofocus class="input" autocomplete="off" name="task" id="task" placeholder="Choke me..." />
+            <button type="submit" class="btn btn-primary">++</button>
+          </form>
+        </div>
+     
+
+
+    </div>
+    <script>
+      function toggleTextDecoration(button) {
+      
+          button.classList.toggle('striked');
+         
+}
+
+  </script>
+  </body>
+</html>
+
+<!-- <%= all[i] %> -->
