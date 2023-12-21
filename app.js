@@ -18,12 +18,21 @@ const Task=mongoose.model("Task",schema);
 
 
 var allTasks=[];
+let aid;
 
 const getTasks = async function(){
    const res = await Task.find({});
-   console.log(res)
+  //  console.log(res)
    allTasks=[...res];
 }
+
+const deleteIt = async function(){
+   const res = await Task.deleteOne({_id:aid});
+   getTasks();
+  //  console.log(typeof(aid))
+  //  allTasks=[...res];
+}
+
 
 
 // const getTasks = async function(){
@@ -41,7 +50,7 @@ app.get("/", (req, res) => {
   setTimeout(() => {
 
     res.render("list", { all: allTasks,day:day });
-  }, 10);
+  }, 15);
 
 });
 
@@ -59,6 +68,14 @@ app.post("/", (req, res) => {
 
   res.redirect("/");
 });
+
+app.post("/delete",(req,res)=>{
+   aid=req.body.aid;
+
+   deleteIt();
+
+    res.redirect("/");
+})
 
 app.listen(3000, function () {
   console.log("server running at http://localhost:3000 ");
