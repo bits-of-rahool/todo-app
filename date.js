@@ -3,6 +3,7 @@ exports.getDate = function () {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: 'Asia/Kolkata'
   };
   return (today = new Date().toLocaleDateString("en-IN", options));
 };
