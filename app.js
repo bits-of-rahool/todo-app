@@ -25,7 +25,7 @@ let aid;
 
 const getTasks = async function(){
    const res = await Task.find({});
-  //  console.log(res)
+   console.log("fetched")
    allTasks=[...res];
 }
 
@@ -51,8 +51,8 @@ app.get("/", (req, res) => {
   // console.log(day);
   getTasks();
   setTimeout(() => {
-
     res.render("list", { all: allTasks,day:day });
+    console.log("rendered")
   }, 1000);
 
 });
@@ -66,6 +66,7 @@ app.post("/", (req, res) => {
 
     const task= new Task({name:item});
     task.save();
+    console.log("saved")
     allTasks.push({name:item})
    
   }
