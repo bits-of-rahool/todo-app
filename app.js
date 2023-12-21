@@ -66,6 +66,7 @@ app.post("/", (req, res) => {
 
     const task= new Task({name:item});
     task.save();
+    allTasks.push({name:item})
    
   }
 
