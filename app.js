@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
   setTimeout(() => {
 
     res.render("list", { all: allTasks,day:day });
-  }, 50);
+  }, 200);
 
 });
 
