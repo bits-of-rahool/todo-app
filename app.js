@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"))
 
-mongoose.connect("mongodb+srv://rahoolitis:qwertyuiop@cluster0.k8neshh.mongodb.net/todoDB");
+mongoose.connect(process.env.MONGO_URL);
 
 // mongosh "/" --apiVersion 1 --username rahoolitis
 const schema={
