@@ -8,12 +8,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"))
 
-mongoose.connect("mongodb://localhost:27017/todoDB");
+mongoose.connect("mongodb+srv://rahoolitis:qwertyuiop@cluster0.k8neshh.mongodb.net/todoDB");
 
+// mongosh "/" --apiVersion 1 --username rahoolitis
 const schema={
   name:String
 }
-
 const Task=mongoose.model("Task",schema);
 
 
@@ -50,7 +50,7 @@ app.get("/", (req, res) => {
   setTimeout(() => {
 
     res.render("list", { all: allTasks,day:day });
-  }, 15);
+  }, 50);
 
 });
 
@@ -75,6 +75,10 @@ app.post("/delete",(req,res)=>{
    deleteIt();
 
     res.redirect("/");
+})
+
+app.get("/:listName",(req,res)=>{
+  console.log(req.params.listName)
 })
 
 app.listen(3000, function () {
