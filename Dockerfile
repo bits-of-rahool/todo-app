@@ -10,7 +10,7 @@ COPY . /app
 # Install the application dependencies
 RUN npm install
 
-ENV MONGO_URL "mongodb+srv://rahoolitis:qwertyuiop@cluster0.k8neshh.mongodb.net/todoDB"
+ENV MONGO_URL <khudka MONGO_URI>
 
 # Expose port 3000
 EXPOSE 3000
